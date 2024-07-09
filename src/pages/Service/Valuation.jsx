@@ -15,7 +15,7 @@ const Valuation = () => {
   useEffect(() => {
     setDataContent(data);
   }, []);
-
+  
   if (!dataContent) {
     return <div>Loading....</div>;
   }
@@ -32,7 +32,6 @@ const Valuation = () => {
 
   return (
     <div className="wrapperrr">
-      <ToastContainer />
       <div className="header-valuation">
         <div>
           <h2>{dataContent.ValuationIntroduction.subtle}</h2>

@@ -77,7 +77,6 @@ const Success = () => {
           </Box>
         </Box>
         <Box display={'flex'} gap={'10px'} justifyContent={'center'} mt={8} pb={5}>
-          <Button variant='contained'>PRINT</Button>
           <Button onClick={e => navigate('/')} variant='contained'>CLOSE</Button>
         </Box>
       </Paper>

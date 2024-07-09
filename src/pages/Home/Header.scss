@@ -510,6 +510,14 @@
        width: 70%
    
 }
+.wrapper-lookup .search-lookup{
+    width: 100%;
+}
+.wrapper-lookup .header-lookup{
+    margin-top: 20%;
+    padding: 0px  1px;
+    font-size: 60px;
+}
 }
 
 @media (max-width: 767px) {
@@ -534,7 +542,7 @@
             transition: transform 0.5s ease;
             background: none;
             border: none;
-            margin-left: 30px;
+            margin-left: 10px;
             margin-top: 5px;
 
 
@@ -607,5 +615,14 @@
              margin-left: 0;
             width: 100%
         
+    }
+    .wrapper-lookup .search-lookup{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .wrapper-lookup .header-lookup{
+        margin-top: 20%;
+        padding: 0px  1px;
+        font-size: 30px;
     }
 }

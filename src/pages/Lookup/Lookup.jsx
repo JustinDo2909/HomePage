@@ -324,10 +324,9 @@ const Lookup = () => {
   };
 
   return (
-    <Box sx={{ textAlign: "center", mt: "10%" }}>
-      {console.log(certificate)}
+    <Box className='wrapper-lookup'  sx={{ textAlign: "center", mt: "10%" }}>
       <ToastContainer />
-      <Typography variant="h3" gutterBottom>
+      <Typography className="header-lookup" variant="h3" gutterBottom>
         Welcome to Shine's Diamond Certificate Lookup
       </Typography>
       <Typography variant="body1" gutterBottom>
@@ -341,7 +340,7 @@ const Lookup = () => {
         appraiser seeking precise information, our intuitive interface ensures a
         seamless experience. Enter the diamond ID below to begin your journey.
       </Typography>
-      <Grid container justifyContent="center" sx={{ mt: 3 }}>
+      <Grid className="search-lookup" container justifyContent="center" sx={{ mt: 3 }}>
         <Grid item xs={12} sm={6} md={4}>
           <TextField
             label="Enter Diamond ID"
