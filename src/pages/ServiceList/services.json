@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "name": "Valuation",
+      "price": 100,
+      "time": 15,
+      "description": "Our expert gemologists assess and determine the value of your diamonds based on rigorous standards of cut, clarity, color, and carat weight. Whether you're curious about your diamond's worth or preparing for a sale."
+    },
+    {
+      "id": 2,
+      "name": "Appraisal",
+      "price": 150,
+      "time": 20,
+      "description": "Our Appraisal Service offers meticulous assessment and valuation of diamonds based on industry-standard criteria. Whether you're seeking an evaluation for insurance purposes, resale, or personal documentation."
+    },
+    {
+      "id": 3,
+      "name": "Sculpture",
+      "price": 200,
+      "time": 14,
+      "description": "Our Sculpture Service celebrates the artistry of transforming raw materials into captivating sculptures that embody your vision. From conceptualization to execution, our skilled artisans specialize in creating bespoke sculptures that enhance any environment."
+    }
+  ]
+  

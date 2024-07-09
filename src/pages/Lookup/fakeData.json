@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "Shape": "Round Brilliant",
+      "Measurements": "5.65 - 5.69 x 3.54 mm",
+      "CaratWeight": "0.71 carat",
+      "ColorGrade": "J",
+      "ClarityGrade": "VS2",
+      "CutGrade": "Very Good",
+      "Polish": "Excellent",
+      "Symmetry": "Very Good",
+      "Fluorescence": "None"
+    },
+    {
+      "id": 2,
+      "Shape": "Round Brilliant",
+      "Measurements": "5.70 - 5.75 x 3.55 mm",
+      "CaratWeight": "0.68 carat",
+      "ColorGrade": "H",
+      "ClarityGrade": "SI1",
+      "CutGrade": "Excellent",
+      "Polish": "Very Good",
+      "Symmetry": "Excellent",
+      "Fluorescence": "Faint"
+    },
+    {
+      "id": 3,
+      "Shape": "Princess",
+      "Measurements": "5.20 x 5.20 x 3.75 mm",
+      "CaratWeight": "0.82 carat",
+      "ColorGrade": "G",
+      "ClarityGrade": "VS1",
+      "CutGrade": "Excellent",
+      "Polish": "Excellent",
+      "Symmetry": "Excellent",
+      "Fluorescence": "None"
+    },
+    {
+      "id": 4,
+      "Shape": "Emerald",
+      "Measurements": "6.85 x 5.15 x 3.80 mm",
+      "CaratWeight": "1.25 carat",
+      "ColorGrade": "D",
+      "ClarityGrade": "IF",
+      "CutGrade": "Excellent",
+      "Polish": "Excellent",
+      "Symmetry": "Excellent",
+      "Fluorescence": "None"
+    },
+    {
+      "id": 5,
+      "Shape": "Cushion",
+      "Measurements": "6.00 x 5.90 x 4.10 mm",
+      "CaratWeight": "1.03 carat",
+      "ColorGrade": "F",
+      "ClarityGrade": "VVS2",
+      "CutGrade": "Very Good",
+      "Polish": "Excellent",
+      "Symmetry": "Very Good",
+      "Fluorescence": "Medium"
+    }
+  ]
+  
