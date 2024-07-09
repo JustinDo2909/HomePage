@@ -1,44 +1,36 @@
 import React from 'react';
-import { Container, Typography } from '@mui/material';
 import './Education.scss';
 import data from './Education.json';
+import clarityImg from '../Home/image/Clarity-Chart_c619f0b2-7bfd-444f-bbc0-c3ad384e1cce.png'
+
 
 const EDUCATION_CLARITY = () => {
   return (
-    <Container maxWidth="md" className="education-wrapper">
-        {data.Clarity.title && (
-          <Typography variant="h4" gutterBottom>
-            {data.Clarity.title}
-          </Typography>
-        )}
-        {data.Clarity.author && (
-          <Typography variant="subtitle1" color="textSecondary">
-            <strong>Author:</strong> {data.Clarity.author}
-          </Typography>
-        )}
-        {data.Clarity.date && (
-          <Typography variant="subtitle1" color="textSecondary">
-            <strong>Date:</strong> {data.Clarity.date}
-          </Typography>
-        )}
-        {data.Clarity.content &&
-          data.Clarity.content.map((section, index) => (
-            <div key={index} className="section">
-              {section.heading && (
-                <Typography variant="h5" gutterBottom>
-                  {section.heading}
-                </Typography>
-              )}
-              {section.paragraphs &&
-                section.paragraphs.map((paragraph, idx) => (
-                  <Typography key={idx} variant="body1" paragraph>
-                    {paragraph}
-                  </Typography>
+    <div className="education-wrapper">
+      <div className='education-content'>
+        {data.Clarity.title && <h1>{data.Clarity.title}</h1>}
+        {data.Clarity.content && data.Clarity.content.map((section, index) => (
+          <div key={index} className="section">
+            {section.heading && <h2>{section.heading}</h2>}
+            {section.paragraphs && section.paragraphs.map((paragraph, idx) => (
+              <p key={idx}>{paragraph}</p>
+            ))}
+            {section.listItems && (
+              <ul>
+                {section.listItems.map((item, idx) => (
+                  <li key={idx}>{item}</li>
                 ))}
-            </div>
-          ))}
-    </Container>
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <img src={clarityImg} />
+
+    </div>
+
   );
-};
+}
 
 export default EDUCATION_CLARITY;

@@ -1,45 +1,36 @@
 import React from 'react';
-import { Container, Typography} from '@mui/material';
 import './Education.scss';
 import data from './Education.json';
+import fluorescenceImg from '../Home/image/Diamond_Fluorescence_1500x.png'
+
 
 const EDUCATION_FLUORESCENCE = () => {
   return (
-    <Container maxWidth="md" className="education-wrapper">
-        {data.Fluorescence.title && (
-          <Typography variant="h4" gutterBottom>
-            {data.Fluorescence.title}
-          </Typography>
-        )}
-        {data.Fluorescence.author && (
-          <Typography variant="subtitle1" color="textSecondary">
-            <strong>Author:</strong> {data.Fluorescence.author}
-          </Typography>
-        )}
-        {data.Fluorescence.date && (
-          <Typography variant="subtitle1" color="textSecondary">
-            <strong>Date:</strong> {data.Fluorescence.date}
-          </Typography>
-        )}
-        {data.Fluorescence.content &&
-          data.Fluorescence.content.map((section, index) => (
-            <div key={index} className="section">
-              {section.heading && (
-                <Typography variant="h5" gutterBottom>
-                  {section.heading}
-                </Typography>
-              )}
-              {section.paragraphs &&
-                section.paragraphs.map((paragraph, idx) => (
-                  <Typography key={idx} variant="body1" paragraph>
-                    {paragraph}
-                  </Typography>
+
+    <div className="education-wrapper">
+      <div className='education-content'>
+        {data.Fluorescence.title && <h1>{data.Fluorescence.title}</h1>}
+        {data.Fluorescence.content && data.Fluorescence.content.map((section, index) => (
+          <div key={index} className="section">
+            {section.heading && <h2>{section.heading}</h2>}
+            {section.paragraphs && section.paragraphs.map((paragraph, idx) => (
+              <p key={idx}>{paragraph}</p>
+            ))}
+            {section.listItems && (
+              <ul>
+                {section.listItems.map((item, idx) => (
+                  <li key={idx}>{item}</li>
                 ))}
-              
-            </div>
-          ))}
-    </Container>
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <img src={fluorescenceImg} />
+
+    </div>
   );
-};
+}
 
 export default EDUCATION_FLUORESCENCE;

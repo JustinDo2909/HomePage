@@ -301,20 +301,20 @@ const Header = () => {
         <div className="service">
           <button>Service</button>
           <ul className="service-content">
-            <li>
+            {/* <li>
               <button
                 onClick={() => handleNavigateToService("/Service/calculator")}
               >
                 Calculation
               </button>
-            </li>
-            {/* <li>
+            </li> */}
+            <li>
               <button
                 onClick={() => handleNavigateToService("/Service/Lookup")}
               >
                 LookUp
               </button>
-            </li> */}
+            </li>
             <li>
               <button
                 onClick={() => handleNavigateToService("/Service/ServiceList")}
@@ -331,21 +331,7 @@ const Header = () => {
         </div>
 
         <div className="active">
-          <form
-            className="search-box"
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSearch();
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Looking for blogs"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-            <button className="search">{<SearchIcon />}</button>
-          </form>
+          
           <div
             className="account"
             aria-label="account-menu"

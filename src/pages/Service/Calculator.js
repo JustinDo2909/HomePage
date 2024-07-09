@@ -52,12 +52,11 @@ const Calculator = ({ shape, color, clarity, carat }) => {
 
   return (
     <div>
-      {console.log(data)}
-      <h1>Diamond Price Calculator</h1>
+      <h2>Diamond Price Calculator</h2>
       {noResult ? (
         <p>No result</p>
       ) : data ? (
-        <>
+        <div className="output">
           <div className="result-output-1">
             <div className="toolTip-1">
               <p>Fair Price Estimate</p>
@@ -74,7 +73,7 @@ const Calculator = ({ shape, color, clarity, carat }) => {
           <div className="result-output-2">
             <div className="wrapper-block">
               <div className="toolTip">
-                <p>Avg Range</p>
+                <b>Avg Range</b>
               </div>
               <div className="price-flex">
                 <p>Avg: {formatNumber(data.avg)}$</p>
@@ -82,7 +81,7 @@ const Calculator = ({ shape, color, clarity, carat }) => {
             </div>
             <div className="wrapper-block">
               <div className="toolTip">
-                <p>Last 30 Day Change</p>
+                <b>Last 30 Day Change</b>
               </div>
               <div className="price-flex">
                 <p>Min: {formatNumber(data.min)}$</p>
@@ -91,7 +90,7 @@ const Calculator = ({ shape, color, clarity, carat }) => {
             </div>
             <div className="wrapper-block">
               <div className="toolTip">
-                <p>Estimate Price per Carat</p>
+                <b>Price per Carat</b>
               </div>
               <div className="price-flex">
                 <p>Count: {data.count}</p>
@@ -99,7 +98,7 @@ const Calculator = ({ shape, color, clarity, carat }) => {
               </div>
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <p>Loading...</p>
       )}

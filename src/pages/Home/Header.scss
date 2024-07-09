@@ -209,13 +209,13 @@
             }
 
             >button:not(.active Button):hover:after {
-                transform: scaleX(1);
+                transform: scaleX(0.8);
             }
         }
 
         // nav-Service
         .service {
-            flex: 0.7;
+            flex: 1;
 
         }
 
@@ -263,54 +263,13 @@
 
         // nav-Blog
         .blog {
-            flex: 0.7;
+            flex: 1;
         }
 
         // Search - Account
         .active {
-            flex: 1.6;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 10px;
-
-            // Search
-            .search-box {
-                display: flex;
-                align-items: center;
-                justify-content: baseline;
-                width: 70%;
-                height: 40%;
-                background-color: #EEEEEE;
-                border-radius: 132px;
-
-                input {
-                    padding: 0px 5px 0px 10px;
-                    border-style: none;
-                    outline: none;
-                    border-radius: 132px;
-                    width: 90%;
-                    background-color: #EEEEEE;
-                    overflow: hidden;
-                }
-
-                .search {
-                    height: 90%;
-                    border-radius: 132px;
-                    background-color: rgba(255, 0, 0, 0);
-                    color: rgb(107, 107, 107);
-                    transition: 0.3s ease-in-out;
-                    font-size: 16px;
-
-
-                    &:hover {
-                        color: rgb(41, 41, 41);
-                    }
-                }
-
-
-            }
-
+            flex: 1;
+          
             //Account
             .account {
                 width: 15%;
