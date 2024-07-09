@@ -283,7 +283,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="diamond">
-          <button>Diamond</button>
+          <button onClick={e => navigate('/Service/calculator')}>Calculation</button>
         </div>
         {isMaxScreen767 && (
                     <MenuIcon onClick={handleMenuOpen} className='iconMenu' />
@@ -308,13 +308,13 @@ const Header = () => {
                 Calculation
               </button>
             </li>
-            <li>
+            {/* <li>
               <button
                 onClick={() => handleNavigateToService("/Service/Lookup")}
               >
                 LookUp
               </button>
-            </li>
+            </li> */}
             <li>
               <button
                 onClick={() => handleNavigateToService("/Service/ServiceList")}
@@ -353,14 +353,8 @@ const Header = () => {
             aria-haspopup="true"
             onClick={handleMenuOpen}
           >
-            <div className="account-icon">
-              {user ? (
-               
-                  <strong>{user.last_name}</strong>
-               
-              ) : (
+            <div className="account-icon">      
                 <AccountCircleIcon />
-              )}
             </div>
           </div>
           {menuUser}

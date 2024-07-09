@@ -48,7 +48,7 @@ const Success = () => {
   return (
 
     <Box style={{ marginBottom: '12%' }} className='wrapperrr'>
-      <Paper sx={{ ml: '30%', width: '40%' }}>
+      <Paper className='wrapper-sucess' sx={{ ml: '30%', width: '40%' }}>
 
         <Typography sx={{ fontSize: '30px', color: '#3a9e6d', mb: '30px' }}>Payment Successfull!</Typography>
         <img style={{ width: '10%' }} src={successIcon} />

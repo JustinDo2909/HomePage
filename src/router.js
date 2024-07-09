@@ -36,6 +36,7 @@ import PaymentFail from "./pages/Payment/PaymentFail";
 import ServiceList from "./pages/ServiceList/ServiceList";
 import Lookup from "./pages/Lookup/Lookup";
 import MyOrder from "./pages/MyOrder/MyOder";
+import PrivateRoute from "./utils/PrivateRoute";
 
 const renderUserRouter = () => {
   const userRouters = [
@@ -76,7 +77,7 @@ const renderUserRouter = () => {
     //USER-ACCOUNT
     {
       path: ROUTERS.USER.account,
-      component: <ManageAccount />,
+      component: <PrivateRoute> <ManageAccount /> </PrivateRoute>,
     },
     //USER-SERVICE
     {
@@ -85,7 +86,7 @@ const renderUserRouter = () => {
     },
     {
       path: ROUTERS.USER.SERVICE_VALUATION_FORM,
-      component: <ServiceForm />,
+      component: <PrivateRoute><ServiceForm /></PrivateRoute>,
     },
     {
       path: ROUTERS.USER.SERVICE_ServiceList,
@@ -101,7 +102,7 @@ const renderUserRouter = () => {
     },
     {
       path: ROUTERS.USER.SERVICE_SALE,
-      component: <ServiceForm />,
+      component: <PrivateRoute> <ServiceForm /> </PrivateRoute>,
     },
     {
       path: ROUTERS.USER.SERVICE_Lookup,
@@ -110,16 +111,16 @@ const renderUserRouter = () => {
     //CheckOut
     {
       path: ROUTERS.USER.PAYMENT_CHECKOUT,
-      component: <Checkout />,
+      component:  <PrivateRoute><Checkout /> </PrivateRoute> ,
     },
     //Pay success
     {
       path: ROUTERS.USER.PAYMENT_success,
-      component: <Success />,
+      component:  <PrivateRoute><Success /> </PrivateRoute> ,
     },
     {
       path: ROUTERS.USER.PAYMENT_FAIL,
-      component: <PaymentFail />,
+      component: <PrivateRoute><PaymentFail /> </PrivateRoute> ,
     },
     //BLOG
     {
@@ -180,7 +181,7 @@ const renderUserRouter = () => {
     //My Request
     {
       path: ROUTERS.USER.MYRequest,
-      component: <MyOrder />,
+      component:  <PrivateRoute><MyOrder /> </PrivateRoute> ,
     },
   ];
 

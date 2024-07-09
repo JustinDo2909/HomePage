@@ -311,7 +311,7 @@ const ServiceForm = () => {
           <Form.Item>
             <Box
               marginTop={2}
-              marginLeft={45}
+              marginLeft={5}
               display="flex"
               justifyContent="center"
             >
