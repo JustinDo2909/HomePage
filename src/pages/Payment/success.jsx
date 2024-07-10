@@ -93,13 +93,6 @@ const Success = () => {
           </Box>
         </Box>
         <Box display={'flex'} gap={'10px'} justifyContent={'center'} mt={8} pb={5}>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 1bc8758c56abb51553341f0af47389da1834498e
-=======
->>>>>>> 001d9d940db5f8a0905e711d55deec7ddde57a5a
           <Button onClick={e => navigate('/')} variant='contained'>CLOSE</Button>
         </Box>
       </Paper>
