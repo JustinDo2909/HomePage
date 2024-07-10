@@ -262,7 +262,7 @@ const ServiceForm = () => {
               >
                 {services.map((service) => (
                   <MenuItem key={service.id} value={service.name}>
-                    {service.name} - {service.content} - {service.money}
+                    {service.name} - {service.money}
                   </MenuItem>
                 ))}
               </Select>
