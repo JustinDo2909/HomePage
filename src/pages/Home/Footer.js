@@ -26,36 +26,36 @@ const Footer = () => {
                         <p>Contact information</p>
                         <ul>
                             <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://maps.app.goo.gl/VzmrqBzBaTGqp3LQ8`}>Address</Link></li>
-                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.facebook.com/profile.php?id=100012156048080`}>Phone Number</Link></li>
-                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.facebook.com/profile.php?id=100012156048080`}>Email</Link> </li>
-                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.facebook.com/profile.php?id=100012156048080`}>Business hours</Link></li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.facebook.com/fptcorp`}>Phone Number</Link></li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.facebook.com/fptcorp`}>Email</Link> </li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://maps.app.goo.gl/VzmrqBzBaTGqp3LQ8`}>Business hours</Link></li>
                         </ul>
                     </div>
                     <div className="footer-prop">
                         <p>Education</p>
                         <ul>
-                            <li onClick={e => navigate('/education/carat')}>Carat</li>
-                            <li onClick={e => navigate('/education/cut')}>Cut</li>
-                            <li onClick={e => navigate('/education/color')}>Color</li>
-                            <li onClick={e => navigate('/education/clarity')}>Clarity</li>
-                            <li onClick={e => navigate('/education/fluorescence')}>Fluorescence</li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`/education/carat`}>Carat</Link></li> 
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`/education/cut`}>Cut</Link></li> 
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`/education/color`}>Color</Link></li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`/education/clarity`}>Clarity</Link></li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`/education/fluorescence`}>Fluorescence</Link></li>
                         </ul>
                     </div>
                     <div className="footer-prop">
                         <p>Service</p>
                         <ul>
-                            <li onClick={e => navigate('/Service/Lookup')}>LookUp</li>
-                            <li onClick={e => navigate('/Service/Valuation')}>Valuation</li>
-                            <li onClick={e => navigate('/Service/calculator')}>Calculation</li>
-                            <li onClick={e => navigate('/Service/Sculpture')}>Sculpture</li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`/Service/Lookup`}>Lookup</Link></li> 
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`/Service/Valuation`}>Valuation</Link></li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`/Service/calculator`}>Calculator</Link></li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`/Service/Sculpture`}>Sculpture</Link></li>
                         </ul>
                     </div>
                     <div className="footer-prop">
                         <p>Social media links</p>
                         <ul>
-                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.facebook.com/profile.php?id=100012156048080`}><FacebookOutlinedIcon sx={{ fontSize: '42px' }} /></Link></li>
-                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.facebook.com/profile.php?id=100012156048080`}><InstagramIcon sx={{ fontSize: '42px' }} /></Link></li>
-                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.facebook.com/profile.php?id=100012156048080`}><TwitterIcon sx={{ fontSize: '42px' }} /></Link></li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.facebook.com/fptcorp`}><FacebookOutlinedIcon sx={{ fontSize: '42px' }} /></Link></li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://www.instagram.com/daihoc_fpt/`}><InstagramIcon sx={{ fontSize: '42px' }} /></Link></li>
+                            <li><Link style={{textDecoration: 'none' , color:'inherit'}} to={`https://x.com/frontpagetech`}><TwitterIcon sx={{ fontSize: '42px' }} /></Link></li>
                         </ul>
                     </div>
                 </div>

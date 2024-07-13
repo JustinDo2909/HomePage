@@ -23,6 +23,7 @@ const ServiceList = () => {
             const response = await getAllServices();
             if (response.status === 200) {
               setServices(response.data);
+              console.log(services)
             }
           } catch (error) {
             console.log(error);

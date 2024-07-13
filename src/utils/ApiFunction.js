@@ -248,13 +248,33 @@ export const processPayment = async (paymentId, PayerID, cart) => {
   }
 };
 
+// ========================================= LOOKUP ====================================== //
 export const getCertificateByCode = async (code) => {
   try {
-    const response = await api.get(`/diamond-certificate/certificate/code/${code}`);
+    const response = await api.get(
+      `/diamond-certificate/certificate/code/${code}`
+    );
     return response;
   } catch (error) {
     return null;
   }
 };
 
+// ======================================== REQUEST ======================================= //
+export const getAllRequest = async () => {
+  try {
+    const response = await api.get(`diamond-request/all`);
+    return response;
+  } catch (error) {
+    return null;
+  }
+};
 
+export const getCertificateById = async (id) => {
+  try {
+    const response = await api.get(`diamond-certificate/certificate/${id}`);
+    return response;
+  } catch (error) {
+    return null;
+  }
+};

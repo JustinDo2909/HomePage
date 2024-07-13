@@ -185,7 +185,7 @@ const Checkout = () => {
         <Divider style={{ margin: '20px 0', backgroundColor: '#444' }} />
 
         <Box mt={4}>
-          <Typography variant="h6" sx={{ fontWeight: 600 }}>Total: ${total}</Typography>
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>Total: ${total.toFixed(2)}</Typography>
         </Box>
 
         <Box mt={4} display="flex" justifyContent="center">

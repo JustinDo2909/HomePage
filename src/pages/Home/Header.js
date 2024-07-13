@@ -197,7 +197,7 @@ const Header = () => {
           {/* {menuContact && ( */}
           <div className="contact-content">
             <div className="col">
-              <a href="https://www.facebook.com/profile.php?id=100012156048080">
+              <a href="https://www.facebook.com/fptcorp">
                 <CallOutlinedIcon className="icon-contact" />
                 <span>CALL US 099999999</span>
               </a>
@@ -207,7 +207,7 @@ const Header = () => {
               </p>
             </div>
             <div className="col">
-              <a href="https://www.facebook.com/profile.php?id=100012156048080">
+              <a href="https://www.facebook.com/fptcorp">
                 <WhatsAppIcon className="icon-contact" />
                 <span>WHATSAPP US</span>
               </a>
@@ -217,17 +217,16 @@ const Header = () => {
               </p>
             </div>
             <div className="col">
-              <a href="https://www.facebook.com/profile.php?id=100012156048080">
+              <a href="https://www.facebook.com/fptcorp">
                 <FacebookOutlinedIcon className="icon-contact" />
                 <span>FACEBOOK US</span>
               </a>
               <p>
-                Our Client Services are available to answer your WhatsApp
-                messages at +65-3138-2024 daily between 10 AM to 10 PM (GMT+8).
+                Our Client Services are available to answer your Facebook daily between 10 AM to 10 PM (GMT+8).
               </p>
             </div>
             <div className="col">
-              <a href="https://www.facebook.com/profile.php?id=100012156048080">
+              <a href="https://www.facebook.com/fptcorp">
                 <FmdGoodIcon className="icon-contact" />
                 <span>ADDRESS US</span>
               </a>
