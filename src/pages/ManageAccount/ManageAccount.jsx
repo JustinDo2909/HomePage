@@ -9,19 +9,15 @@ import {
   Button,
   Box,
   Snackbar,
-  Avatar,
 } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Cancel";
 import EmailIcon from "@mui/icons-material/Email";
 import PersonIcon from "@mui/icons-material/Person";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
-import LockIcon from "@mui/icons-material/Lock";
 
 const ManageAccount = () => {
-  const [editMode, setEditMode] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
@@ -35,6 +31,9 @@ const ManageAccount = () => {
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  const [errors, setErrors] = useState({});
+
   useEffect(() => {
     const getCustomer = async () => {
       const data = await getCustomerById();
@@ -51,35 +50,62 @@ const ManageAccount = () => {
     };
     getCustomer();
   }, [navigate]);
-  
-  // Function to handle form input change
+
   const handleInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  // Function to handle form submission
+  const validate = () => {
+    let newErrors = {};
+  
+  //  // Validate First Name
+  //  if (!/\w+\s+\w+/.test(user.first_name.trim())) {
+  //   newErrors.first_name = "First Name must contain at least one word";
+  // }
+
+  // // Validate Last Name
+  // if (!/\w+/.test(user.last_name)) {
+  //   newErrors.last_name = "Last Name must contain at least one word";
+  // }
+
+  // // Validate Location
+  // if (!/\w+/.test(user.location)) {
+  //   newErrors.location = "Location must contain at least one word";
+  // }
+  
+    // Validate Phone Number
+    const phoneRegex = /^[0][0-9]{9}$/;
+    if (!phoneRegex.test(user.phone_number.trim())) {
+      newErrors.phone_number = "Phone number must start with 0 and have 10 digits";
+    }
+  
+    // Set errors state
+    setErrors(newErrors);
+  
+    // Return true if no errors, false otherwise
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await updateAccount(user);
-      if (response.status === 200) {
-        alert("update account successfully!");
-        window.location.reload();
+    if (validate()) {
+      try {
+        const response = await updateAccount(user);
+        if (response.status === 200) {
+          alert("update account successfully!");
+          window.location.reload();
+        }
+      } catch (error) {
+        setError("This email is already exist!");
       }
-    } catch (error) {
-      setError("This email is already exist!");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
     }
-    setTimeout(() => {
-      setError("");
-    }, 5000);
   };
 
   const handleSnackbarClose = () => {
     setSnackbarOpen(false);
-  };
-
-  const handleEditClick = () => {
-    setEditMode(true);
   };
 
   const handleCancelClick = () => {
@@ -106,11 +132,12 @@ const ManageAccount = () => {
             name="email"
             label="Email"
             value={user.email}
-            onChange={handleInputChange}
             fullWidth
+            required
             margin="normal"
             InputProps={{
               startAdornment: <EmailIcon sx={{ mr: 1 }} />,
+              readOnly: true,
             }}
           />
           <TextField
@@ -123,6 +150,8 @@ const ManageAccount = () => {
             fullWidth
             margin="normal"
             required
+            error={!!errors.first_name}
+            helperText={errors.first_name}
             InputProps={{
               startAdornment: <PersonIcon sx={{ mr: 1 }} />,
             }}
@@ -137,6 +166,8 @@ const ManageAccount = () => {
             fullWidth
             margin="normal"
             required
+            error={!!errors.last_name}
+            helperText={errors.last_name}
             InputProps={{
               startAdornment: <PersonIcon sx={{ mr: 1 }} />,
             }}
@@ -151,6 +182,8 @@ const ManageAccount = () => {
             fullWidth
             margin="normal"
             required
+            error={!!errors.location}
+            helperText={errors.location}
             InputProps={{
               startAdornment: <LocationOnIcon sx={{ mr: 1 }} />,
             }}
@@ -165,6 +198,8 @@ const ManageAccount = () => {
             fullWidth
             margin="normal"
             required
+            error={!!errors.phone_number}
+            helperText={errors.phone_number}
             InputProps={{
               startAdornment: <PhoneIcon sx={{ mr: 1 }} />,
             }}

@@ -4,25 +4,25 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CertificateHTML from "../MyOrder/CertificateHTML";
 
-import logo from "../Home/image/logot.png";
-import facet1 from "../Home/image/Facet_part1.jpg";
-import facet2 from "../Home/image/Facet_part2.jpg";
+// import logo from "../Home/image/logot.png";
+// import facet1 from "../Home/image/Facet_part1.jpg";
+// import facet2 from "../Home/image/Facet_part2.jpg";
 import { getCertificateByCode } from "../../utils/ApiFunction";
 
 const Lookup = () => {
-  const currentDate = new Date();
+  // const currentDate = new Date();
   const [idCef, setIdCef] = useState("");
 
   // Format date
-  const day = currentDate.getDate().toString().padStart(2, "0");
-  const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
-  const year = currentDate.getFullYear();
-  const formattedDate = `${day}-${month}-${year}`;
+  // const day = currentDate.getDate().toString().padStart(2, "0");
+  // const month = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+  // const year = currentDate.getFullYear();
+  // const formattedDate = `${day}-${month}-${year}`;
 
   const handleSearch = async () => {
     const result = await getCertificateByCode(idCef);
-    if (result && result.data) {
-      openCertificateInNewTab(result.data);
+    if (result !== null) {
+      openCertificateInNewTab(result);
     } else {
       toast.error(`Certificate with ID ${idCef} not found.`, {
         autoClose: 3000,
@@ -59,7 +59,7 @@ const Lookup = () => {
         justifyContent="center"
         sx={{ mt: 3 }}
       >
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={4} md={4}>
           <TextField
             label="Enter Diamond ID (Ex: SH-9e4827a8f3a8)"
             variant="outlined"

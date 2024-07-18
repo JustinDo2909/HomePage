@@ -15,14 +15,11 @@ const Sculpture = () => {
   }
   //check xem người dùng đã đăng nhập hay chưa
   const handleSendForm = () => {
-    const checkUser = window.localStorage.getItem("user");
+    const checkUser = window.localStorage.getItem("userId");
     if (checkUser) {
       navigate("/Service/valuation/valuation-form");
     } else {
       toast.error(`You need to login`, { autoClose: 3000 });
-      setTimeout(() => {
-        navigate(`/login`);
-      }, 4000);
     }
   };
   return (

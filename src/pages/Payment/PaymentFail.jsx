@@ -1,16 +1,7 @@
 import React from 'react'
-import { Box, Button, Link, Paper, Typography } from '@mui/material'
-import { useNavigate } from 'react-router-dom';
+import { Box, Link, Paper, Typography } from '@mui/material'
 import error from '../Payment/error3.jpg'
 const PaymentFail = () => {
-  const navigate = useNavigate();
-  const handelHomePage = () => {
-    navigate("/");
-  }
-
-  const handleService = () => {
-    navigate("/Service/valuation/valuation-form");
-  }
 
   return (
     <Box className="wrapperrrrr" >

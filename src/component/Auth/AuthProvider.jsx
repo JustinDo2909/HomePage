@@ -1,4 +1,5 @@
 import React, { createContext, useContext } from "react";
+import { logout } from "../../utils/ApiFunction";
 
 export const AuthContext = createContext({
   handleLogin: (response) => {},
@@ -17,10 +18,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("userId")
-    localStorage.removeItem("email");
-    localStorage.removeItem("token");
+  const handleLogout = async() => {
+    const id = localStorage.getItem("userId");
+    const response = await logout(id);
+    if(response.status === 200){
+      localStorage.removeItem("userId")
+      localStorage.removeItem("email");
+      localStorage.removeItem("token");
+    }
   };
 
   return (

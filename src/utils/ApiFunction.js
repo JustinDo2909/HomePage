@@ -16,6 +16,18 @@ export async function loginUser(login) {
   }
 }
 
+export async function logout(){
+  try {
+    const id = localStorage.getItem("userId");
+    if(id.length>0 && id !== null){
+      const response = await api.get(`/diamond-shop/logout/${id}`);
+      return response;
+    }
+  } catch (error) {
+    return null;
+  }
+}
+
 export async function createNewAccount(account) {
   try {
     const response = await api.post("/diamond-shop/signup", account);
@@ -111,7 +123,6 @@ api.interceptors.response.use(
 
       try {
         const resp = await refreshToken();
-
         if (resp.token) {
           const access_token = resp.token;
           localStorage.setItem("token", access_token);
@@ -254,7 +265,7 @@ export const getCertificateByCode = async (code) => {
     const response = await api.get(
       `/diamond-certificate/certificate/code/${code}`
     );
-    return response;
+    return response.data;
   } catch (error) {
     return null;
   }
@@ -264,7 +275,7 @@ export const getCertificateByCode = async (code) => {
 export const getAllRequest = async () => {
   try {
     const response = await api.get(`diamond-request/all`);
-    return response;
+    return response.data;
   } catch (error) {
     return null;
   }

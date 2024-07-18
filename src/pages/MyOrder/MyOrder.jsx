@@ -49,19 +49,20 @@ const MyOrder = () => {
   const itemsPerPage = 3;
 
   useEffect(() => {
-    getAllRequest().then((result) => {
-      setOrders(result.data);
-      setFilteredOrders(result.data);
-      setTotalRequest(result.data.length);
-      const doneRequests = result.data.filter(
-        (order) => order.status === "DONE"
-      );
-      setTotalDone(doneRequests.length);
-      const completedSteps = result.data.filter(
-        (order) => order.status === "PROCESSED"
-      );
-      setTotalCompletedSteps(completedSteps.length);
-    });
+    const fetchData = async () => {
+     await getAllRequest().then((data) => {
+        setOrders(data);
+        setFilteredOrders(data);
+        setTotalRequest(data.length);
+        const doneRequests = data.filter((order) => order.status === "DONE");
+        setTotalDone(doneRequests.length);
+        const completedSteps = data.filter(
+          (order) => order.status === "PROCESSED"
+        );
+        setTotalCompletedSteps(completedSteps.length);
+      });
+    }
+    fetchData()
   }, []);
 
   const handleShowDetails = (order) => {
@@ -95,10 +96,12 @@ const MyOrder = () => {
 
 
   const handleShowCertificate = async (certificate_id) => {
+    console.log(certificate_id)
+    console.log(orders);
     const result = await getCertificateById(certificate_id);
 
-    if (result && result.data) {
-      openCertificateInNewTab(result.data);
+    if (result !== null) {
+      openCertificateInNewTab(result);
     } else {
       console.log(`Certificate with ID not found.`);
     }
@@ -106,9 +109,10 @@ const MyOrder = () => {
 
 
   const handleShowPrice = async (certificate_id) => {
+    
     const result = await getCertificateById(certificate_id);
 
-    if (result && result.data) {
+    if (result !== null) {
       setValuation(result)
       setModalOpen(true)
     } else {
@@ -118,7 +122,8 @@ const MyOrder = () => {
 
   const openCertificateInNewTab = (certificate) => {
     const newWindow = window.open("", "_blank");
-    newWindow.document.write(CertificateHTML(certificate));
+    console.log(certificate)
+    newWindow.document.write(CertificateHTML(certificate.data));
     newWindow.document.close();
   };
 
@@ -132,7 +137,7 @@ const MyOrder = () => {
   return (
     <Box sx={{ backgroundColor: "#dcdcdc66" }}>
       <Box className="wrapperrr" sx={{ mt: 10, height: "80vh" }}>
-
+     
         <Box sx={{ mb: 2 }}>
           <Typography variant="h3" color={'#254a4b'}>Request Tracking</Typography>
         </Box>

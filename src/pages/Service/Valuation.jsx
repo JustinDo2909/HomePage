@@ -20,18 +20,18 @@ const Valuation = () => {
     return <div>Loading....</div>;
   }
 
-  // //check xem người dùng đã đăng nhập hay chưa
-  // const handleSendForm = () => {
-  //   const checkUser = localStorage.getItem("userId");
-  //   if (checkUser) {
-  //     navigate("/Service/valuation/valuation-form");
-  //   } else {
-  //       navigate(`/login`);
-  //   }
-  // };
+  const handleSendForm = () => {
+    const checkUser = window.localStorage.getItem("userId");
+    if (checkUser) {
+      navigate("/Service/valuation/valuation-form");
+    } else {
+      toast.error(`You need to login`, { autoClose: 3000 });
+    }
+  };
 
   return (
     <div className="wrapperrr">
+      <ToastContainer />
       <div className="header-valuation">
         <div>
           <h2>{dataContent.ValuationIntroduction.subtle}</h2>
@@ -41,7 +41,7 @@ const Valuation = () => {
         </div>
       </div>
       <div>
-        <button onClick={() => navigate('/Service/valuation/valuation-form ')} className="btn-form">
+        <button onClick={handleSendForm} className="btn-form">
           Send Form To Valuation
         </button>
       </div>

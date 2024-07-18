@@ -13,7 +13,7 @@ const HomePage = () => {
         <div className="home-page">
             <div className="banner">
                 <div className="filter-banner" />
-                <p>Welcome to Shine, your trusted partner in diamond valuation</p>
+                {/* <p>Welcome to Shine, your trusted partner in diamond valuation</p> */}
                 <img
                     className="img-banner"
                     src={bannerHome}
