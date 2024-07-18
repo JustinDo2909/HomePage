@@ -35,7 +35,7 @@ import GoogleLoginSuccess from "./pages/login/GoogleLoginSuccess";
 import PaymentFail from "./pages/Payment/PaymentFail";
 import ServiceList from "./pages/ServiceList/ServiceList";
 import Lookup from "./pages/Lookup/Lookup";
-import MyOrder from "./pages/MyOrder/MyOder";
+import MyOrder from "./pages/MyOrder/MyOrder";
 import PrivateRoute from "./utils/PrivateRoute";
 
 const renderUserRouter = () => {

@@ -54,7 +54,7 @@ const ServiceForm = () => {
   const [user, setUser] = useState({});
   const [selectedDate, setSelectedDate] = useState("");
   const [serviceSelected, setServiceSelected] = useState([]);
-  const [payMentSelected, setPayMentSelected] = useState("");
+  // const [payMentSelected, setPayMentSelected] = useState("");
   const [services, setServices] = useState([]);
 
   useEffect(() => {
@@ -94,7 +94,7 @@ const ServiceForm = () => {
     }, "");
     localStorage.setItem("selectedDate", selectedDate);
     localStorage.setItem("serviceSelected", serviceSelect);
-    localStorage.setItem("paymentMethod", payMentSelected);
+    // localStorage.setItem("paymentMethod", payMentSelected);
 
     navigate("/Payment-checkout");
   };
@@ -117,21 +117,14 @@ const ServiceForm = () => {
           }}
         >
           
-          {/* <Form.Item
+          <Form.Item
             label="Email"
             name="email"
-            rules={[
-              {
-                required: true,
-                message: "Please input your email!",
-              },
-            ]}
           >
             <FormControl fullWidth>
               <TextField
                 label="Email"
                 value={user.email || ""}
-                onChange={(e) => setUser({ ...user, email: e.target.value })}
                 fullWidth
                 margin="normal"
               />
@@ -140,18 +133,11 @@ const ServiceForm = () => {
           <Form.Item
             label="First Name"
             name="first_name"
-            rules={[
-              {
-                required: true,
-                message: "Please input your first name!",
-              },
-            ]}
           >
             <FormControl fullWidth>
               <TextField
                 label="First Name"
                 value={user.first_name || ""}
-                onChange={(e) => setUser({ ...user, first_name: e.target.value })}
                 fullWidth
                 margin="normal"
               />
@@ -160,18 +146,11 @@ const ServiceForm = () => {
           <Form.Item
             label="Last Name"
             name="last_name"
-            rules={[
-              {
-                required: true,
-                message: "Please input your last name!",
-              },
-            ]}
           >
             <FormControl fullWidth>
               <TextField
                 label="Last Name"
                 value={user.last_name || ""}
-                onChange={(e) => setUser({ ...user, last_name: e.target.value })}
                 fullWidth
                 margin="normal"
               />
@@ -180,18 +159,11 @@ const ServiceForm = () => {
           <Form.Item
             label="Phone Number"
             name="phone_number"
-            rules={[
-              {
-                required: true,
-                message: "Please input your phone number!",
-              },
-            ]}
           >
             <FormControl fullWidth>
               <TextField
                 label="Phone Number"
                 value={user.phone_number || ""}
-                onChange={(e) => setUser({ ...user, phone_number: e.target.value })}
                 fullWidth
                 margin="normal"
               />
@@ -200,23 +172,16 @@ const ServiceForm = () => {
           <Form.Item
             label="Address"
             name="location"
-            rules={[
-              {
-                required: true,
-                message: "Please input your address!",
-              },
-            ]}
           >
             <FormControl fullWidth>
               <TextField
                 label="Address"
                 value={user.location || ""}
-                onChange={(e) => setUser({ ...user, location: e.target.value })}
                 fullWidth
                 margin="normal"
               />
             </FormControl>
-          </Form.Item> */}
+          </Form.Item>
           <Form.Item
             label="Preferred Appraisal Date"
             name="date"
@@ -268,7 +233,7 @@ const ServiceForm = () => {
               </Select>
             </FormControl>
           </Form.Item>
-          <Form.Item
+          {/* <Form.Item
             label="Payment Methods"
             name="paymentMethod"
             rules={[
@@ -307,7 +272,7 @@ const ServiceForm = () => {
                 />
               </RadioGroup>
             </FormControl>
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item>
             <Box
               marginTop={2}

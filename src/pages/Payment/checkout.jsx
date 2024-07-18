@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Typography, Paper, List, ListItem, ListItemText, Divider, Alert, Grid, Avatar, Container } from '@mui/material';
+import { Box, Button, Typography, Paper, List, ListItem, ListItemText, Divider, Alert, Grid, Avatar, Container, FormControl, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { createPayment, getAllServices, getCustomerById, placeOrderDiamond } from '../../utils/ApiFunction';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
@@ -19,6 +19,8 @@ const Checkout = () => {
   const [total, setTotal] = useState(0);
   const [services, setServices] = useState([]);
   const [error, setError] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState("");
+
   const navigate = useNavigate();
 
   const getMoneyByService = (name) => {
@@ -37,7 +39,7 @@ const Checkout = () => {
           location: data.location
         });
       }
-    };
+    };  
 
     const Services = async () => {
       try {
@@ -53,7 +55,7 @@ const Checkout = () => {
     Services();
     const date = localStorage.getItem("selectedDate");
     const serviceSelect = localStorage.getItem("serviceSelected");
-    const paymentMethod = localStorage.getItem("paymentMethod");
+    // const paymentMethod = localStorage.getItem("paymentMethod");
     const serviceSelected = serviceSelect.split(",");
 
     setCart({
@@ -62,7 +64,7 @@ const Checkout = () => {
       paymentMethod: paymentMethod
     });
     getCustomer();
-  }, []);
+  }, [paymentMethod]);
 
   useEffect(() => {
     const calculateTotal = () => {
@@ -75,11 +77,12 @@ const Checkout = () => {
   }, [cart.serviceSelected, services]);
 
   const handleBookingClick = async () => {
+    console.log(paymentMethod)
     try {
       const response = await placeOrderDiamond(cart);
       if (response.status === 200) {
         localStorage.removeItem('serviceSelected');
-        localStorage.removeItem('paymentMethod');
+        // localStorage.removeItem('paymentMethod');
         localStorage.removeItem('selectedDate');
         setOpen(true);
       } else {
@@ -94,6 +97,8 @@ const Checkout = () => {
   };
 
   const handlePayClick = async () => {
+    console.log(paymentMethod)
+
     try {
       const response = await createPayment(total);
       if (response.status === 200) {
@@ -112,6 +117,11 @@ const Checkout = () => {
   const handleClickDialog = () => {
     setOpen(false);
     navigate("/");
+  };
+
+  const handlePaymentMethodChange = (event) => {
+    setPaymentMethod(event.target.value);
+    // localStorage.setItem("paymentMethod", event.target.value);
   };
 
   return (
@@ -173,13 +183,43 @@ const Checkout = () => {
 
         <Box mt={4}>
           <Typography variant="h6" sx={{ color: '#56758d' }}>Payment Method</Typography>
-          <Typography>
+          {/* <Typography>
             {cart.paymentMethod === 'PAYPAL' ? (
               <img src={paypal} alt="PayPal Logo" style={{ width: 70, height: 20 }} />
             ) : (
               <strong>CASH</strong>
             )}
-          </Typography>
+          </Typography> */}
+          
+            <FormControl component="fieldset">
+              <RadioGroup
+                row
+                aria-labelledby="payment-method-radio-group-label"
+                name="paymentMethod"
+                value={paymentMethod}
+                onChange={handlePaymentMethodChange}
+              >
+                <FormControlLabel
+                  value="CASH"
+                  control={<Radio />}
+                  label="Cash"
+                />
+                <FormControlLabel
+                  value="PAYPAL"
+                  control={<Radio />}
+                  label={
+                    <Box display="flex" alignItems="center">
+                      <img
+                        src={paypal}
+                        alt="PayPal"
+                        height="20"
+                        style={{ marginRight: 5 }}
+                      />
+                    </Box>
+                  }
+                />
+              </RadioGroup>
+            </FormControl>
         </Box>
 
         <Divider style={{ margin: '20px 0', backgroundColor: '#444' }} />
@@ -198,6 +238,9 @@ const Checkout = () => {
               PAY NOW
             </Button>
           )}
+          {/* <Button variant='contained' onClick={paymentMethod === 'CASH' ? handleBookingClick : handlePayClick}>
+              Booking Now
+          </Button> */}
         </Box>
       </Paper>
 
