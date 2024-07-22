@@ -46,10 +46,9 @@ const Header = () => {
   const handleBadgeClick = () => {
     setBadgeVisible(false);
   };
-  const handleLogoutClick = () => {
-    auth.handleLogout();
+  const handleLogoutClick = async () => {
+    await auth.handleLogout();
     window.location.reload();
-    navigate("/login");
   };
 
   const handleMenuOpen = (event) => {

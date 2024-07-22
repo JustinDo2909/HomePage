@@ -3,7 +3,13 @@ import logo from "../Home/image/logot.png";
 import facet1 from "../Home/image/Facet_part1.jpg";
 import facet2 from "../Home/image/Facet_part2.jpg";
 
+
+
 const CertificateHTML = (certificate) => {
+    const formatDate = (dateStr) => {
+        const date = dateStr.split("T");
+        return date[0];
+      };
   return `
       <html>
   
@@ -127,7 +133,7 @@ const CertificateHTML = (certificate) => {
               <div class="S-prop">
                   <p>SHINE NATURAL DIAMOND ORIGIN REPORT</p>
                   <div class="detail">
-                      <p>September 01/2024</p>
+                      <p>${formatDate(certificate.created_date)}</p>
                       <p>SHINE Report Number <span>${
                         certificate.code
                       }</span></p>
@@ -174,12 +180,6 @@ const CertificateHTML = (certificate) => {
                       <p>Additional pinpoints are not shown</p>
                   </div>
               </div>
-              <div class="S-prop">
-                  <p>ORIGIN RESULT</p>
-                  <div class="detail">
-                      <p>Country of Origin: <span>South Africa</span></p>
-                  </div>
-              </div>
           </div>
   
           <div class="middle-report">
@@ -192,7 +192,7 @@ const CertificateHTML = (certificate) => {
               <div class="S-prop">
                   <p>CLARITY CHARACTERISTICS</p>
                   <div class="characters">
-                      <img class="alt-diamond" src=${certificate.photo} alt="">
+                      <img class="alt-diamond" src="${certificate.photo}">
                   </div>
               </div>
   

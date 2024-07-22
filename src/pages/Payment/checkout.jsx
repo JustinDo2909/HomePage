@@ -158,7 +158,7 @@ const Checkout = () => {
 
   const handlePaymentMethodChange = (event) => {
     setPaymentMethod(event.target.value);
-    // localStorage.setItem("paymentMethod", event.target.value);
+    localStorage.setItem("paymentMethod", event.target.value);
   };
 
   if (loading) {
@@ -198,7 +198,7 @@ const Checkout = () => {
             <Typography>Email: {user.email}</Typography>
             <Typography>Phone Number: {user.phone_number}</Typography>
             <Typography>Address: {user.location}</Typography>
-            <Typography>Preferred Appraisal Date: {cart.selectedDate}</Typography>
+            <Typography>Preferred Appraisal Date(yyyy-MM-dd): {cart.selectedDate}</Typography>
             {/* <Link to={"/account"}>Change your information</Link> */}
           </Grid>
 
@@ -206,6 +206,7 @@ const Checkout = () => {
             <Box>
               <Typography variant="h6" sx={{ color: '#56758d' }}>Services</Typography>
               {cart.serviceSelected.length > 0 ? (
+                <>
                 <List>
                   {cart.serviceSelected.map((service, index) => (
                     <ListItem key={index} divider sx={{ borderBottom: '1px solid #444' }}>
@@ -214,6 +215,12 @@ const Checkout = () => {
                     </ListItem>
                   ))}
                 </List>
+
+                 <Box mt={4}>
+                   <Typography textAlign={'start'} variant="h6" sx={{ fontWeight: 600 }}>Total: ${total.toFixed(2)}</Typography>
+                 </Box>
+                </>
+         
               ) : (
                 <Typography>No services selected.</Typography>
               )}
@@ -221,8 +228,8 @@ const Checkout = () => {
           </Grid>
         </Grid>
 
-        <Box mt={4}>
-          <Typography variant="h6" sx={{ color: '#56758d' }}>Payment Method</Typography>
+        <Box  mt={4}>
+          <Typography textAlign={'center'} variant="h6" sx={{ color: '#56758d' }}>Payment Method</Typography>
           {/* <Typography>
             {cart.paymentMethod === 'PAYPAL' ? (
               <img src={paypal} alt="PayPal Logo" style={{ width: 70, height: 20 }} />
@@ -230,7 +237,8 @@ const Checkout = () => {
               <strong>CASH</strong>
             )}
           </Typography> */}
-          
+            <Box display={'flex'} justifyContent={'center'}>
+
             <FormControl component="fieldset">
               <RadioGroup
                 row
@@ -260,14 +268,11 @@ const Checkout = () => {
                 />
               </RadioGroup>
             </FormControl>
+            </Box>
+
         </Box>
 
-        <Divider style={{ margin: '20px 0', backgroundColor: '#444' }} />
-
-        <Box mt={4}>
-          <Typography variant="h6" sx={{ fontWeight: 600 }}>Total: ${total.toFixed(2)}</Typography>
-        </Box>
-
+       
         <Box mt={4} display="flex" justifyContent="center">
           {cart.paymentMethod === "CASH" ? (
             <Button onClick={handleBookingClick} variant="contained" >

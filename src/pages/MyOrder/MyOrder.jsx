@@ -51,6 +51,7 @@ const MyOrder = () => {
   useEffect(() => {
     const fetchData = async () => {
      await getAllRequest().then((data) => {
+      if(data!==null){
         setOrders(data);
         setFilteredOrders(data);
         setTotalRequest(data.length);
@@ -60,6 +61,7 @@ const MyOrder = () => {
           (order) => order.status === "PROCESSED"
         );
         setTotalCompletedSteps(completedSteps.length);
+      }
       });
     }
     fetchData()
@@ -123,16 +125,19 @@ const MyOrder = () => {
   const openCertificateInNewTab = (certificate) => {
     const newWindow = window.open("", "_blank");
     console.log(certificate)
-    newWindow.document.write(CertificateHTML(certificate.data));
+    newWindow.document.write(CertificateHTML(certificate));
     newWindow.document.close();
   };
 
   const indexOfLastOrder = currentPage * itemsPerPage;
   const indexOfFirstOrder = indexOfLastOrder - itemsPerPage;
-  const currentOrders = filteredOrders.slice(
-    indexOfFirstOrder,
-    indexOfLastOrder
-  );
+  let currentOrders = null;
+  if(filteredOrders != null){
+      currentOrders = filteredOrders.slice(
+      indexOfFirstOrder,
+      indexOfLastOrder
+    );
+  }
 
   return (
     <Box sx={{ backgroundColor: "#dcdcdc66" }}>
@@ -228,7 +233,7 @@ const MyOrder = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {currentOrders.map((request, index) => (
+              {currentOrders && currentOrders.map((request, index) => (
                 <TableRow key={request.id}>
                   <TableCell sx={{ color: "gray" }} align="center">
                     {index + 1}
@@ -364,23 +369,23 @@ const MyOrder = () => {
                     <TableBody>
                       <TableRow>
                         <TableCell sx={{ fontWeight: 'bold', color: ' #a51442' }}>
-                          ${valuation.data.min_price.toLocaleString()}
+                          ${valuation.min_price.toLocaleString()}
                         </TableCell>
                         <TableCell sx={{ fontWeight: 'bold', color: ' #009688' }}>
-                          ${valuation.data.max_price.toLocaleString()}
+                          ${valuation.max_price.toLocaleString()}
                         </TableCell>
                         <TableCell sx={{ fontWeight: 'bold', color: '#673ab7' }}>
-                          ${valuation.data.rap_price.toLocaleString()}
+                          ${valuation.rap_price.toLocaleString()}
                         </TableCell>
                         <TableCell sx={{ fontWeight: 'bold', color:
-                          valuation.data.rap_percent > 1 
+                          valuation.rap_percent > 1 
                           ? 'green' :
                           '#f44336'
                          }}>
-                          {valuation.data.rap_percent.toFixed(2)} %
+                          {valuation.rap_percent.toFixed(2)} %
                         </TableCell>
                         <TableCell sx={{ fontWeight: 'bold', color: '#11375e' }}>
-                          ${valuation.data.real_price.toLocaleString()}
+                          ${valuation.real_price.toLocaleString()}
                         </TableCell>
                       </TableRow>
                     </TableBody>
@@ -419,13 +424,12 @@ const MyOrder = () => {
             ) : null}
           </Box>
         </Modal>
-
-        <Pagination
+            {filteredOrders && (<Pagination
           count={Math.ceil(filteredOrders.length / itemsPerPage)}
           page={currentPage}
           onChange={handlePageChange}
           sx={{ display: "flex", justifyContent: "center", mt: 2 }}
-        />
+        />)}
       </Box>
     </Box>
   );

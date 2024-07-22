@@ -15,49 +15,72 @@ const Success = () => {
   });
   const [request , setRequest] = useState({});
   useEffect(() => {
-    const date = localStorage.getItem("selectedDate");
-    const serviceSelect = localStorage.getItem("serviceSelected");
-    const paymentMethod = localStorage.getItem("paymentMethod");
-    const serviceSelected = serviceSelect ? serviceSelect.split(",") : [];
-    const getCustomer = async () => {
-      const data = await getCustomerById();
-      if (data !== null) {
-        setUser({
-          fullname: `${data.first_name} ${data.last_name}`,
-          email: data.email,
-          phone_number: data.phone_number,
-          location: data.location
-        });
-      }
-      
-    };
-    getCustomer();
-    setCart({
-      selectedDate: date,
-      serviceSelected: serviceSelected,
-      paymentMethod: paymentMethod
-    });
-  }, []); // Only run once, on mount
+    const initializeAndProcessPayment = async () => {
+      // Retrieve data from localStorage
+      const date = localStorage.getItem("selectedDate");
+      const serviceSelect = localStorage.getItem("serviceSelected");
+      const paymentMethod = localStorage.getItem("paymentMethod");
+      const serviceSelected = serviceSelect ? serviceSelect.split(",") : [];
 
-  useEffect(() => {
-    const executePayment = async () => {
+      // Update the cart state
+      const newCart = {
+        selectedDate: date,
+        serviceSelected: serviceSelected,
+        paymentMethod: paymentMethod
+      };
+      setCart(newCart);
+
+      // Fetch customer data
+      const getCustomer = async () => {
+        try {
+          const data = await getCustomerById();
+          if (data) {
+            setUser({
+              fullname: `${data.first_name} ${data.last_name}`,
+              email: data.email,
+              phone_number: data.phone_number,
+              location: data.location
+            });
+          }
+        } catch (error) {
+          console.error("Failed to fetch customer data:", error);
+        }
+      };
+      await getCustomer();
+
+      // Process payment
       const paymentId = searchParams.get('paymentId');
       const PayerID = searchParams.get('PayerID');
 
-      if (cart.selectedDate && cart.serviceSelected.length && cart.paymentMethod) { // Check if cart is populated
-        const response = await processPayment(paymentId, PayerID, cart);
-
-        if (response && response.status === 200) {
-          setRequest(response.data)
-          localStorage.removeItem('serviceSelected');
-          localStorage.removeItem('paymentMethod');
-          localStorage.removeItem('selectedDate');
+      if (true) {
+        try {
+          const response = await processPayment(paymentId, PayerID, {
+            selectedDate: localStorage.getItem("selectedDate"),
+            serviceSelected: localStorage.getItem("serviceSelected").split(","),
+            paymentMethod: localStorage.getItem("paymentMethod")
+          });
+          if (response && response.status === 200) {
+            setRequest(response.data);
+            localStorage.removeItem('serviceSelected');
+            localStorage.removeItem('paymentMethod');
+            localStorage.removeItem('selectedDate');
+          }
+        } catch (error) {
+          console.error("Payment processing failed:", error);
         }
       }
     };
 
+    initializeAndProcessPayment();
+  }, [searchParams]);
+
+  useEffect(() => {
+    const executePayment = async () => {
+      
+    };
+
     executePayment();
-  }, [cart]); // Run when cart is updated
+  }, [cart]);
 
 
 
