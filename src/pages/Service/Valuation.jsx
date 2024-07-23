@@ -25,7 +25,7 @@ const Valuation = () => {
     if (checkUser) {
       navigate("/Service/valuation/valuation-form");
     } else {
-      toast.error(`You need to login`, { autoClose: 3000 });
+      navigate('/login');
     }
   };
 
