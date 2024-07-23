@@ -61,7 +61,7 @@ const Lookup = () => {
       >
         <Grid item xs={12} sm={4} md={4}>
           <TextField
-            label="Enter Diamond ID (Ex: SH-9e4827a8f3a8)"
+            label="Enter Diamond ID (Ex: SH-c8a1e581005e)"
             variant="outlined"
             fullWidth
             value={idCef}

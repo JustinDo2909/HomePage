@@ -106,7 +106,7 @@ const Success = () => {
           <Box textAlign={'end'}>
             <Typography sx={{pb:'7px' ,color :'#504747'}}>Net Banking </Typography>
             <Typography sx={{pb:'7px',color :'#504747'}}><img src={PayPall} style={{width: '60px'}}></img></Typography>
-            <Typography sx={{pb:'7px',color :'#504747'}}>{user.fullname}</Typography>
+            <Typography sx={{pb:'7px',color :'#504747'}}>{user.phone_number}</Typography>
             <Typography sx={{pb:'7px',color :'#504747'}}>{user.email}</Typography>
             <Typography sx={{pb:'7px',color :'#504747'}}>{user.fullname}</Typography>
             <br />
