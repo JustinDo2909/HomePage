@@ -29,7 +29,7 @@ const GoogleLoginSuccess = () => {
       loginGoogleSuccess();
     },[])
   return (
-    <div className='wrapperr'>
+    <Box >
         {loading && (    
             <Box mt={20} mb={38} textAlign={'center'}>
                <CircularProgress size={50} color="primary" />
@@ -38,7 +38,7 @@ const GoogleLoginSuccess = () => {
                     </Box>
             </Box>        
         )}
-    </div>
+    </Box>
   )
 }
 
