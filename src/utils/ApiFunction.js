@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://localhost:8081/DiamondShop",
+  baseURL: "https://diamond-shop-0fba6488d8a2.herokuapp.com/DiamondShop",
   withCredentials: true,
 });
 
