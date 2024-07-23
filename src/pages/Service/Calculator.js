@@ -94,7 +94,7 @@ const Calculator = ({ shape, color, clarity, carat }) => {
               </div>
               <div className="price-flex">
                 <p>Count: {data.count}</p>
-                <a href={data.link}>Link</a>
+                <a href={data.link} target="_blank" rel="noopener noreferrer">Link</a>
               </div>
             </div>
           </div>
