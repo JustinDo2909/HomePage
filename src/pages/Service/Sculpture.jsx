@@ -27,7 +27,7 @@ const Sculpture = () => {
       <ToastContainer />
       <div className="header-valuation">
         <div>
-          <h9>{dataContent.SculptureIntroduction.subtle}</h9>
+          <h2>{dataContent.SculptureIntroduction.subtle}</h2>
         </div>
         <div>
           <h1>{dataContent.SculptureIntroduction.title}</h1>
