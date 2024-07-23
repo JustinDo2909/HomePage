@@ -69,7 +69,8 @@ const UserLogin = () => {
     };
 
     const handleGoogleLogin = async() => {
-      window.location.href = 'http://localhost:8081/DiamondShop/oauth2/authorization/google';
+      // window.location.href = 'http://localhost:8081/DiamondShop/oauth2/authorization/google';
+      window.location.href = 'https://diamond-shop-0fba6488d8a2.herokuapp.com/DiamondShop/oauth2/authorization/google';
     }
     if (loading) {
       return (
